@@ -1,6 +1,6 @@
 # Project: Go Logic with TypeScript gRPC Client
 
-> **Note:** ผมไม่ค่อยถนัดภาษา TypeScript ดังนั้นผมจึงใช้ภาษา **Go** ในการเขียน logic และ unit test ก่อน จากนั้นจึง expose ผ่าน **gRPC** ให้ TypeScript client สามารถเรียกใช้งานได้
+> **Note:** ผมไม่ค่อยถนัดภาษา TypeScript และเวลาที่จำกัดไม่พอที่จะเรียนรู้ TypeScript ดังนั้นผมจึงใช้ภาษา **Go** ในการเขียน logic และ unit test ก่อน จากนั้นจึง expose ผ่าน **gRPC** ให้ TypeScript client สามารถเรียกใช้งานได้
 
 ## Overview
 
