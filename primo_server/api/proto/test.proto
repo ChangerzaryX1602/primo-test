@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package test.api.proto;
+
+option go_package = "api/pb";
+
+service TestService {
+    rpc Merge(SortRequest) returns (SortResponse) {}
+}
+message SortRequest {
+    repeated int64 collection_1 = 1;
+    repeated int64 collection_2 = 2;
+    repeated int64 collection_3 = 3;
+}
+message SortResponse {
+    repeated int64 sorted_collection = 1;
+}
