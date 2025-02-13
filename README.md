@@ -45,6 +45,8 @@ This approach leverages the strengths of Go for fast and reliable backend logic 
    ```bash
    make server-run
 
-2. **Run client:**
+### 1. TypeScript Server Setup
+
+1. **Run client:**
    ```bash
    make client-run
