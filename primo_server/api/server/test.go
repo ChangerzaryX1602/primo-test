@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"errors"
-	"test/api/pb"
 	"test/internal/usecase"
 	"test/utils"
 
@@ -12,13 +11,13 @@ import (
 
 type testServer struct {
 	usecase usecase.TestUsecase
-	pb.UnimplementedTestServiceServer
 }
 
-func NewTestServer(usecase usecase.TestUsecase) pb.TestServiceServer {
+func NewTestServer(usecase usecase.TestUsecase) TestServiceServer {
 	return &testServer{usecase: usecase}
 }
-func (s *testServer) Merge(ctx context.Context, req *pb.SortRequest) (*pb.SortResponse, error) {
+func (s *testServer) mustEmbedUnimplementedTestServiceServer() {}
+func (s *testServer) Merge(ctx context.Context, req *SortRequest) (*SortResponse, error) {
 	if req.Collection_1 == nil {
 		return nil, utils.NewErrorWithSource(errors.New("collection_1 is required"), helpers.WhereAmI())
 	}
@@ -32,5 +31,5 @@ func (s *testServer) Merge(ctx context.Context, req *pb.SortRequest) (*pb.SortRe
 	if err != nil {
 		return nil, utils.NewErrorWithSource(err, helpers.WhereAmI())
 	}
-	return &pb.SortResponse{SortedCollection: result}, nil
+	return &SortResponse{SortedCollection: result}, nil
 }

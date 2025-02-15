@@ -6,6 +6,11 @@ option go_package = "api/pb";
 
 service TestService {
     rpc Merge(SortRequest) returns (SortResponse) {}
+    rpc GetRandomNumber(Empty) returns (RandomNumber) {}
+}
+message Empty {}
+message RandomNumber {
+    uint64 number = 1;
 }
 message SortRequest {
     repeated int64 collection_1 = 1;

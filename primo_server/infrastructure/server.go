@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"test/api/pb"
 	"test/api/server"
 	"test/internal/repository"
 	"test/internal/usecase"
@@ -44,7 +43,7 @@ func (s *Resources) Run() {
 	userUsecase := usecase.NewTestUsecase(userRepository)
 	userServer := server.NewTestServer(userUsecase)
 	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(LogResponsesInterceptor))
-	pb.RegisterTestServiceServer(grpcServer, userServer)
+	server.RegisterTestServiceServer(grpcServer, userServer)
 	log.Println("Server started on port :", viper.GetInt("grpc.port"))
 	err = grpcServer.Serve(lis)
 	if err != nil {

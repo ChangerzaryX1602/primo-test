@@ -4,7 +4,7 @@
 // - protoc             v3.19.6
 // source: api/proto/test.proto
 
-package pb
+package server
 
 import (
 	context "context"

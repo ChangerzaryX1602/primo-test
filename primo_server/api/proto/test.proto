@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package test.api.proto;
 
-option go_package = "api/pb";
+option go_package = "api/server";
 
 service TestService {
     rpc Merge(SortRequest) returns (SortResponse) {}
